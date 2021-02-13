@@ -49,11 +49,29 @@ namespace WindowsFormsApp1
 
             conectionDataBase conecDB = new conectionDataBase();
 
+            try
+            {
+                if(!this.txtNroTicket.Text.Equals(""))
+                    nroTicket = int.Parse(this.txtNroTicket.Text);
+                
+                if(!this.txtNroPV.Text.Equals(""))
+                    nroPV = int.Parse(this.txtNroPV.Text);
+            }
+            catch(System.FormatException)
+            {
+                nroTicket = -1;
+                nroPV = -1;
+            }
+            
             DataTable dt = new DataTable();
+            dt = conecDB.ReportsCashierDataConnections(nroPV, nroTicket);
 
-            dt = conecDB.ReportsCashierDataConnections(int.Parse(this.txtNroPV.Text), int.Parse(this.txtNroTicket.Text));
+            DataTable dt2 = new DataTable();
+            dt2 = conecDB.ReportCashierCreditDataConnections(int.Parse(this.txtNroPV.Text));
+            
 
             dgvReportVenta.DataSource = dt;
+            dgvFormaPago.DataSource = dt2;
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

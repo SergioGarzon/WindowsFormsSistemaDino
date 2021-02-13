@@ -123,8 +123,67 @@ namespace WindowsFormsApp1
                   ",dtr.[iNroComprob] AS 'TICKET COMPROBANTE DE VENTA' " +
                   ",dtr.[fTimeSynchro] AS 'FECHA Y HORA' " +
                   "FROM[dbo].[dE_TResu] dtr " +
-                  "WHERE dtr.iNroPV =  " + nroPV + " AND dtr.iNroComprob = " + nroComprob;
-  
+                  "WHERE dtr.iNroPV =  " + nroPV;
+            
+            
+            if(nroComprob != -1)
+            {
+                sql += " AND dtr.iNroComprob = " + nroComprob + " " +                    
+                  "ORDER BY dtr.[fTimeSynchro] DESC";
+            }
+            
+
+            connection = new SqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+                /*while (dataReader.Read())
+                {*/
+                dt.Load(dataReader);
+                //}
+                dataReader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+
+
+            return dt;
+        }
+
+        public System.Data.DataTable ReportCashierCreditDataConnections(int iNroPV)
+        {
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = "";
+            SqlDataReader dataReader;
+            System.Data.DataTable dt = new System.Data.DataTable();
+
+            sql = "SELECT ddmp.uId AS 'FORMA DE PAGO' " +
+                  ", ddmp.[lTicket] AS 'TICKET TIPRE' " +
+                  ",ddmp.[iNroY] AS 'NÚMERO DE Y' " +
+                  ",ddmp.[iNroZ] AS 'NÚMERO DE Z' " +
+                  ",ddmp.[iNroPos] AS 'NÚMERO DE POS' " +
+                  ",ddmp.[iNroSuc] AS 'NÚMERO DE SUCURSAL' " +
+                  ",ddmp.[iNroUser] AS 'LEGAJO CAJERO' " +
+                  ",ddmp.[cDescripcion] AS 'DESCRIPCIÓN FORMA DE PAGO' " +
+                  ",REPLACE(CONVERT(VARCHAR,ddmp.[dImporte]), '.', ',') AS 'IMPORTE' " +
+                  ",ddmp.[dRecDesc] AS 'RECARGO/DESCUENTO' " +
+                  ",ddmp.[cComprobante] AS 'COMPROBANTE' " +
+                  ",ddmp.[cCliente] AS 'TARJETA CLIENTE' " +
+                  ",ddmp.[cBarCode] AS 'PLAN TARJETA' " +
+                  ",ddmp.[cPlan] AS 'CPLAN' " +
+                  ",ddmp.[fTimeSynchro] AS 'FECHA Y HORA' " +
+                  ",ddmp.[vData] AS 'DATOS DEL CLIENTE (TIPO TELEFONO, NRO DE TELEFONO, DNI)' " +
+                  "FROM [dbo].[dE_DDMP] ddmp " +
+                  "WHERE ddmp.[iNroPos] IN (SELECT dtr.iNroPos FROM dE_TResu dtr WHERE dtr.iNroPV = " + iNroPV + ")";
+
 
             connection = new SqlConnection(connectionString);
 
