@@ -72,15 +72,19 @@ namespace WindowsFormsApp1
                 this.txtLegajo.Focus();
                 return;
             }            
-
+             
             if (dt == null)
+            {
                 MessageBox.Show("Error, no se encuentra nada de lo solicitado!");
+                this.dataGridView1.DataSource = null;
+            }                
             else
                 this.dataGridView1.DataSource = dt;
 
             this.txtLegajo.Text = "";
             this.txtNombreApellido.Text = "";
             this.comboBox1.SelectedIndex = -1;
+            this.cmbSucursales.SelectedIndex = -1;
             this.txtNombreApellido.Focus();
         }
 
@@ -105,8 +109,6 @@ namespace WindowsFormsApp1
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            FormularioPrincipal frmPrincipal = new FormularioPrincipal();
-            frmPrincipal.Show();
         }
     }
 }

@@ -29,5 +29,12 @@ namespace WindowsFormsApp1
             VentasCajero vtnCashier = new VentasCajero();
             vtnCashier.ShowDialog();            
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AccessLogin access = new AccessLogin();
+            access.Show();               
+        }
     }
 }

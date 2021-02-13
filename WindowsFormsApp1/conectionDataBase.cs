@@ -18,24 +18,7 @@ namespace WindowsFormsApp1
             SqlDataReader dataReader;
             System.Data.DataTable dt = new System.Data.DataTable();
 
-            sql = "SELECT usu.Tipo AS 'TIPO', usu.Nombre AS 'NOMBRE', usu.Legajo AS 'LEGAJO', usu.Clave AS 'CLAVE', suc.Descripcion AS 'SUCURSAL' " +
-                  "FROM UsuariosPos usu INNER JOIN Sucursales suc " +
-                  "ON usu.Sucursal = suc.Id " +
-                  "WHERE ";
-
-            if (!name.Equals(""))
-                sql += "usu.Nombre LIKE '%" + name + "%' ";
-
-
-            if (legajo != -1)
-                sql += "usu.Legajo = " + legajo + " ";
-
-            if (nroSucursal != -1)
-                sql += "usu.NroSucursal = " + nroSucursal + " ";
-
-            if(tipo != -1)
-                sql += "and usu.Tipo = " + (tipo + 1);
-            
+            sql = StringQuery(name, legajo, tipo, nroSucursal);
 
             connection = new SqlConnection(connetionString);
 
@@ -61,5 +44,82 @@ namespace WindowsFormsApp1
             return dt;
         }
 
+        private String StringQuery(string name, int legajo, int tipo, int nroSucursal)
+        {
+            string sql;
+            bool flags1;
+            flags1 = false;
+
+            sql = "SELECT usu.Tipo AS 'TIPO', usu.Nombre AS 'NOMBRE', usu.Legajo AS 'LEGAJO', usu.Clave AS 'CLAVE', suc.Descripcion AS 'SUCURSAL' " +
+                  "FROM UsuariosPos usu INNER JOIN Sucursales suc " +
+                  "ON usu.Sucursal = suc.Id " +
+                  "WHERE ";
+
+            if (!name.Equals(""))
+            {
+                sql += "usu.Nombre LIKE '%" + name + "%' ";
+                flags1 = true;
+            }
+                
+
+            if (legajo != -1)
+            {
+                if (flags1)
+                {
+                    sql += "AND ";
+                    flags1 = false;
+                }
+
+                sql += "usu.Legajo = " + legajo + " ";
+                flags1 = true;
+            }
+
+            if (nroSucursal != -1)
+            {
+                if (flags1)
+                {
+                    sql += "AND ";
+                    flags1 = false;
+                }
+
+                sql += "usu.Sucursal = " + nroSucursal + " ";
+                flags1 = true;
+            }
+                
+
+            if (tipo != -1)
+            {
+                if (flags1)
+                {
+                    sql += "AND ";
+                    flags1 = false;
+                }
+
+                sql += " usu.Tipo = " + (tipo + 1);
+                flags1 = true;
+            }
+                
+
+            return sql;
+        }
+
+
+
+
+        /*
+          
+            Ver como hacer funcionar esto
+         
+          
+            private void SqlAndString(out bool flag,out string sql)
+            {
+                if (flags1)
+                {
+                    sql += "AND ";
+                    flags1 = false;
+                }
+            }
+
+        */
     }
 }
