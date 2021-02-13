@@ -9,9 +9,10 @@ namespace WindowsFormsApp1
 {
     class conectionDataBase
     {
+        private string connectionString = "";
+        
         public System.Data.DataTable UserDataConnections(string name, int legajo, int tipo, int nroSucursal)
-        {
-            string connetionString = "";
+        {            
             SqlConnection connection;
             SqlCommand command;
             string sql = "";
@@ -20,7 +21,7 @@ namespace WindowsFormsApp1
 
             sql = StringQuery(name, legajo, tipo, nroSucursal);
 
-            connection = new SqlConnection(connetionString);
+            connection = new SqlConnection(connectionString);
 
             try
             {
@@ -101,6 +102,52 @@ namespace WindowsFormsApp1
                 
 
             return sql;
+        }
+
+        public System.Data.DataTable ReportsCashierDataConnections(int nroPV, int nroComprob)
+        {            
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = "";
+            SqlDataReader dataReader;
+            System.Data.DataTable dt = new System.Data.DataTable();
+
+            sql = "SELECT dtr.[bStatus] AS ESTADO, " +
+                  "dtr.[iNroSuc] AS 'NÚMERO DE SUCURSAL' " +
+                  ",dtr.[iNroPV] AS 'NÚMERO DE PV' ,dtr.[iNroPos] AS 'NÚMERO DE POS' " +
+                  ",dtr.[iNroZ] AS 'NÚMERO DE Z' " +
+                  ",dtr.[iNroY] AS 'NÚMERO DE Y' " +
+                  ",dtr.[iNroUser] AS 'LEGAJO CAJERO' " +
+                  ",dtr.[iNroTicket] AS 'TICKET TIPRE' " +
+                  ",REPLACE(CONVERT(VARCHAR, dtr.fPrecioTotal), '.', ',')  AS 'PRECIO TOTAL' " +
+                  ",dtr.[iNroComprob] AS 'TICKET COMPROBANTE DE VENTA' " +
+                  ",dtr.[fTimeSynchro] AS 'FECHA Y HORA' " +
+                  "FROM[dbo].[dE_TResu] dtr " +
+                  "WHERE dtr.iNroPV =  " + nroPV + " AND dtr.iNroComprob = " + nroComprob;
+  
+
+            connection = new SqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+                /*while (dataReader.Read())
+                {*/
+                dt.Load(dataReader);
+                //}
+                dataReader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+
+
+            return dt;
         }
 
 

@@ -19,7 +19,8 @@ namespace WindowsFormsApp1
 
         private void VentasCajero_Load(object sender, EventArgs e)
         {
-            this.toolTip1.SetToolTip(this.button1,"Salir del formulario");
+            this.toolTip1.SetToolTip(this.btnQuit,"Salir del formulario");
+            this.toolTip1.SetToolTip(this.btnExcel, "Generar Excel de Ventas");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +47,18 @@ namespace WindowsFormsApp1
             legajoCashier = nroPV = nroTicket = 0;
 
 
+            conectionDataBase conecDB = new conectionDataBase();
+
+            DataTable dt = new DataTable();
+
+            dt = conecDB.ReportsCashierDataConnections(int.Parse(this.txtNroPV.Text), int.Parse(this.txtNroTicket.Text));
+
+            dgvReportVenta.DataSource = dt;
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
