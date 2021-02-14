@@ -32,6 +32,8 @@ namespace WindowsFormsApp1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserData));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbSucursales = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@ namespace WindowsFormsApp1
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbSucursales = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,7 @@ namespace WindowsFormsApp1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(14, 28);
+            this.panel1.Location = new System.Drawing.Point(13, 15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(176, 166);
             this.panel1.TabIndex = 0;
@@ -71,8 +71,40 @@ namespace WindowsFormsApp1
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(527, 241);
+            this.panel2.Size = new System.Drawing.Size(659, 206);
             this.panel2.TabIndex = 1;
+            // 
+            // cmbSucursales
+            // 
+            this.cmbSucursales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSucursales.FormattingEnabled = true;
+            this.cmbSucursales.Items.AddRange(new object[] {
+            "SUPER MAMI AV",
+            "VESTA AV",
+            "KARMYA AV",
+            "SUPER MAMI R20",
+            "VESTA R20",
+            "SUPER MAMI SV",
+            "SUPER MAMI CIR",
+            "SUPER MAMI SP",
+            "SUPER MAMI 60C",
+            "SUPER MAMI AGR",
+            "SUPER TADICOR LH",
+            "SUPER TADICOR SM"});
+            this.cmbSucursales.Location = new System.Drawing.Point(337, 143);
+            this.cmbSucursales.Name = "cmbSucursales";
+            this.cmbSucursales.Size = new System.Drawing.Size(163, 21);
+            this.cmbSucursales.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(259, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Sucursal:";
             // 
             // comboBox1
             // 
@@ -82,7 +114,7 @@ namespace WindowsFormsApp1
             "Cajero",
             "Supervisor",
             "Vendedor"});
-            this.comboBox1.Location = new System.Drawing.Point(337, 101);
+            this.comboBox1.Location = new System.Drawing.Point(337, 102);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(163, 21);
             this.comboBox1.TabIndex = 6;
@@ -103,7 +135,7 @@ namespace WindowsFormsApp1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(375, 181);
+            this.button1.Location = new System.Drawing.Point(518, 144);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 49);
             this.button1.TabIndex = 4;
@@ -147,9 +179,9 @@ namespace WindowsFormsApp1
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 259);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 224);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(527, 218);
+            this.dataGridView1.Size = new System.Drawing.Size(659, 253);
             this.dataGridView1.TabIndex = 2;
             // 
             // btnSalir
@@ -157,50 +189,18 @@ namespace WindowsFormsApp1
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.Location = new System.Drawing.Point(480, 483);
+            this.btnSalir.Location = new System.Drawing.Point(612, 483);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(59, 53);
             this.btnSalir.TabIndex = 7;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(259, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Sucursal:";
-            // 
-            // cmbSucursales
-            // 
-            this.cmbSucursales.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSucursales.FormattingEnabled = true;
-            this.cmbSucursales.Items.AddRange(new object[] {
-            "SUPER MAMI AV",
-            "VESTA AV",
-            "KARMYA AV",
-            "SUPER MAMI R20",
-            "VESTA R20",
-            "SUPER MAMI SV",
-            "SUPER MAMI CIR",
-            "SUPER MAMI SP",
-            "SUPER MAMI 60C",
-            "SUPER MAMI AGR",
-            "SUPER TADICOR LH",
-            "SUPER TADICOR SM"});
-            this.cmbSucursales.Location = new System.Drawing.Point(337, 143);
-            this.cmbSucursales.Name = "cmbSucursales";
-            this.cmbSucursales.Size = new System.Drawing.Size(163, 21);
-            this.cmbSucursales.TabIndex = 8;
-            // 
             // UserData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 546);
+            this.ClientSize = new System.Drawing.Size(683, 546);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);

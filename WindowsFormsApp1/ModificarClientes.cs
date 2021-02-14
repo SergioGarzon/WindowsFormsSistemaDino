@@ -28,5 +28,15 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome.exe", "http://172.17.11.200:8080/TiBackPos/login.seam");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("chrome.exe", "https://www.rentascordoba.gob.ar/tramitesweb/consulta-alicuotas");
+        }
     }
 }

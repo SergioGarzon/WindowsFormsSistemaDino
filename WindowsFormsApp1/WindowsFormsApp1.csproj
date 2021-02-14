@@ -12,6 +12,23 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\oper.sistemas\Desktop\AQUI\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>A1B67567D9C4E490F773D6654505CBF2E7C9FC28</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WindowsFormsApp1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -53,11 +82,23 @@
       <DependentUpon>AccessLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="conectionDataBase.cs" />
+    <Compile Include="FormSGT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSGT.Designer.cs">
+      <DependentUpon>FormSGT.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormularioPrincipal.Designer.cs">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioReportes.Designer.cs">
+      <DependentUpon>FormularioReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="ModificarClientes.cs">
       <SubType>Form</SubType>
@@ -73,6 +114,12 @@
     <Compile Include="UserData.Designer.cs">
       <DependentUpon>UserData.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidarUsuarioModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidarUsuarioModificarCliente.Designer.cs">
+      <DependentUpon>ValidarUsuarioModificarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="VentasCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +129,14 @@
     <EmbeddedResource Include="AccessLogin.resx">
       <DependentUpon>AccessLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSGT.resx">
+      <DependentUpon>FormSGT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioReportes.resx">
+      <DependentUpon>FormularioReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModificarClientes.resx">
       <DependentUpon>ModificarClientes.cs</DependentUpon>
@@ -100,6 +153,9 @@
     <EmbeddedResource Include="UserData.resx">
       <DependentUpon>UserData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ValidarUsuarioModificarCliente.resx">
+      <DependentUpon>ValidarUsuarioModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VentasCajero.resx">
       <DependentUpon>VentasCajero.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,9 +168,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WindowsFormsApp1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
