@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
 
             data = getDataError(user, pass);
 
-            if(data == "")
+            if(data == "No ha ingresado ")
             {
                 value = 1;
                 data = getValidateUserPass(user, pass);                
@@ -64,16 +64,16 @@ namespace WindowsFormsApp1
 
         private string getDataError(string user, string pass)
         {
-            string data = "";
+            string data = "No ha ingresado ";
 
             if (user == "")
-                data = "No ha ingresado el nombre de usuario";
+                data += "el nombre de usuario";
 
             if (pass == "")
-                data = "No ha ingresado la contraseña!";
+                data += "la contraseña!";
 
             if (user == "" && pass == "")
-                data = "No ha ingresado ni usuario ni contraseña!";
+                data += "ni usuario ni contraseña!";
 
             return data;
         }
@@ -85,8 +85,7 @@ namespace WindowsFormsApp1
             if (!(user == "Administrador" && pass == "12345678"))
                 data = "Usuario y Contraseña incorrectos";
 
-            return data;
-                
+            return data;                
         }
 
 

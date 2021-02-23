@@ -39,14 +39,14 @@ namespace WindowsFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Close();
             ValidarUsuarioModificarCliente vaUsuario = new ValidarUsuarioModificarCliente(this);
             vaUsuario.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            ExecuteURL("C:\\Windows\\System32\\mstsc.exe");
+            string url = "C:\\Windows\\System32\\mstsc.exe";
+            StartURL(url);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -58,7 +58,8 @@ namespace WindowsFormsApp1
 
         private void button8_Click(object sender, EventArgs e)
         {
-            ExecuteURL("\\\\srv-usuarios\\Sistemas\\Horarios\\Horarios 2021\\02-Febrero\\Horarios DEL 15-02 AL 21-02.xls");
+            string url = "\\\\srv-usuarios\\Sistemas\\Horarios\\Horarios 2021\\02-Febrero\\Horarios DEL 15-02 AL 21-02.xls";
+            StartURL(url);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -70,22 +71,42 @@ namespace WindowsFormsApp1
 
         private void button10_Click(object sender, EventArgs e)
         {
-            ExecuteURL("C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\Ssms.exe");            
+            string url = "C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\ManagementStudio\\Ssms.exe";
+            StartURL(url);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {            
-            ExecuteURL("C:\\Program Files\\Radmin Viewer 3\\Radmin.exe");
+            string url = "C:\\Program Files\\Radmin Viewer 3\\Radmin.exe";
+            StartURL(url);
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
-            ExecuteURL("C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control #1\\DWRCC.exe");
+            string url = "C:\\Program Files\\SolarWinds\\DameWare Mini Remote Control #1\\DWRCC.exe";
+            StartURL(url);
         }
 
         private void ExecuteURL(string url)
         {
             System.Diagnostics.Process.Start(url);
-        } 
+        }
+
+        private void FormularioPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartURL(string url)
+        {
+            ExecuteURL(url);
+        }
+            
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            BuscarTelefono buscarTel = new BuscarTelefono();
+            buscarTel.Show();
+        }
     }
 }

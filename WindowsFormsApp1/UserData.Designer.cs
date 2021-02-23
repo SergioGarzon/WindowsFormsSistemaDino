@@ -72,7 +72,7 @@ namespace WindowsFormsApp1
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(659, 206);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 0;
             // 
             // cmbSucursales
             // 
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
             this.cmbSucursales.Location = new System.Drawing.Point(337, 143);
             this.cmbSucursales.Name = "cmbSucursales";
             this.cmbSucursales.Size = new System.Drawing.Size(163, 21);
-            this.cmbSucursales.TabIndex = 8;
+            this.cmbSucursales.TabIndex = 7;
             // 
             // label4
             // 
@@ -103,7 +103,7 @@ namespace WindowsFormsApp1
             this.label4.Location = new System.Drawing.Point(259, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 16);
-            this.label4.TabIndex = 7;
+            this.label4.TabIndex = 6;
             this.label4.Text = "Sucursal:";
             // 
             // comboBox1
@@ -117,7 +117,7 @@ namespace WindowsFormsApp1
             this.comboBox1.Location = new System.Drawing.Point(337, 102);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(163, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label3
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1
             this.label3.Location = new System.Drawing.Point(287, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 4;
             this.label3.Text = "Tipo:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
@@ -135,10 +135,11 @@ namespace WindowsFormsApp1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(518, 144);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(125, 49);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 8;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -182,7 +183,7 @@ namespace WindowsFormsApp1
             this.dataGridView1.Location = new System.Drawing.Point(12, 224);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(659, 253);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 1;
             // 
             // btnSalir
             // 
@@ -192,7 +193,7 @@ namespace WindowsFormsApp1
             this.btnSalir.Location = new System.Drawing.Point(612, 483);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(59, 53);
-            this.btnSalir.TabIndex = 7;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 

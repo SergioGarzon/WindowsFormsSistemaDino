@@ -65,11 +65,7 @@ namespace WindowsFormsApp1
 
             if (legajo != -1)
             {
-                if (flags1)
-                {
-                    sql += "AND ";
-                    flags1 = false;
-                }
+                sql += SqlAndString(flags1);
 
                 sql += "usu.Legajo = " + legajo + " ";
                 flags1 = true;
@@ -77,11 +73,7 @@ namespace WindowsFormsApp1
 
             if (nroSucursal != -1)
             {
-                if (flags1)
-                {
-                    sql += "AND ";
-                    flags1 = false;
-                }
+                sql += SqlAndString(flags1);
 
                 sql += "usu.Sucursal = " + nroSucursal + " ";
                 flags1 = true;
@@ -90,14 +82,9 @@ namespace WindowsFormsApp1
 
             if (tipo != -1)
             {
-                if (flags1)
-                {
-                    sql += "AND ";
-                    flags1 = false;
-                }
+                sql += SqlAndString(flags1);
 
                 sql += " usu.Tipo = " + (tipo + 1);
-                flags1 = true;
             }
                 
 
@@ -157,6 +144,60 @@ namespace WindowsFormsApp1
             return dt;
         }
 
+        public List<string> getDataBaseCliente(int dni)
+        {
+            List<string> lista = new List<string>();
+
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = "";
+            SqlDataReader dataReader;
+            System.Data.DataTable dt = new System.Data.DataTable();
+
+            sql = "SELECT " +
+                  "uId AS 'FORMA DE PAGO' " +
+	              ",[iNroY] AS 'NÚMERO DE Y' " + 
+                  ",[iNroZ] AS 'NÚMERO DE Z' " + 
+                  ",[iNroPos] AS 'NÚMERO DE POS' " +
+                  ",[iNroSuc] AS 'NÚMERO DE SUCURSAL' " + 
+                  ",[iNroUser] AS 'LEGAJO CAJERO' " +
+                  ",[cDescripcion] AS 'DESCRIPCIÓN FORMA DE PAGO' " + 
+                  ",REPLACE(CONVERT(VARCHAR,[dImporte]), '.', ',') AS 'IMPORTE' " + 
+                  ",[dRecDesc] AS 'RECARGO/DESCUENTO' " +  
+                  ",[cComprobante] AS 'COMPROBANTE' " +
+                  ",[cCliente] AS 'TARJETA CLIENTE' " +
+                  ",[cBarCode] AS 'PLAN TARJETA' " + 
+                  ",[cPlan] AS 'CPLAN' " + 
+                  ",[fTimeSynchro] AS 'FECHA Y HORA' " +
+                  ",[vData] AS 'DATOS DEL CLIENTE (TIPO TELEFONO, NRO DE TELEFONO, DNI)' " +
+                  "FROM dE_DDMP " +
+                  "WHERE vData LIKE '%" + dni + "%'";
+
+            connection = new SqlConnection(connectionString);
+
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+                /*while (dataReader.Read())
+                {*/
+                dt.Load(dataReader);
+                //}
+                dataReader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                dt = null;
+            }
+
+            lista.Add(dt.ToString());            
+
+            return lista;
+        }
+
         public System.Data.DataTable ReportCashierCreditDataConnections(int iNroPV)
         {
             SqlConnection connection;
@@ -209,23 +250,17 @@ namespace WindowsFormsApp1
             return dt;
         }
 
+        private string SqlAndString(bool flag)
+        {
+            string sql = "";
 
-
-
-        /*
-          
-            Ver como hacer funcionar esto
-         
-          
-            private void SqlAndString(out bool flag,out string sql)
+            if (flag)
             {
-                if (flags1)
-                {
-                    sql += "AND ";
-                    flags1 = false;
-                }
+                sql += "AND ";
+                flag = false;
             }
 
-        */
+            return sql;
+        }
     }
 }

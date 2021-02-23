@@ -28,7 +28,8 @@ namespace WindowsFormsApp1
 
             try
             {
-                int valueLegajo = -1, tipo = -1, sucursal = -1, nroSucursal = -1;                
+                int valueLegajo = -1, tipo = -1, sucursal = -1, nroSucursal = -1;
+                int[] value = { 1, 13, 3, 50, 54, 110, 200, 350, 370, 380, 390};
 
                 if(!this.txtLegajo.Text.Equals(""))
                     valueLegajo = int.Parse(txtLegajo.Text);
@@ -37,30 +38,10 @@ namespace WindowsFormsApp1
 
                 sucursal = cmbSucursales.SelectedIndex;
 
-                switch(sucursal)
+                for(int i = 0; i< value.Length ; i++)
                 {
-                    case(0): nroSucursal = 1; //SUPER MAMI AV
-                        break;
-                    case(1): nroSucursal = 13; //VESTA AV
-                        break;
-                    case(2): nroSucursal = 3; //KARMYA AV
-                        break;
-                    case(3): nroSucursal = 50; //SUPER MAMI R20
-                        break;
-                    case(4): nroSucursal = 54; //VESTA R20
-                        break;
-                    case(5): nroSucursal = 110; //SUPER MAMI SV
-                        break;
-                    case(6): nroSucursal = 200; //SUPER MAMI CVL
-                        break;
-                    case(7): nroSucursal = 350; //SUPER MAMI 60C
-                        break;
-                    case(8): nroSucursal = 370; //SUPER MAMI AGR
-                        break;
-                    case(9): nroSucursal = 380; //SUPER TADICOR LH
-                        break;
-                    case(10): nroSucursal = 390; //SUPER TADICOR SM
-                        break;
+                    if (sucursal == i)
+                        nroSucursal = value[i];
                 }
 
                 dt = con.UserDataConnections(this.txtNombreApellido.Text, valueLegajo, tipo, nroSucursal);
