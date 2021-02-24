@@ -75,79 +75,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessLogin.cs">
+    <Compile Include="Forms\AccessLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccessLogin.Designer.cs">
+    <Compile Include="Forms\AccessLogin.Designer.cs">
       <DependentUpon>AccessLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="BuscarTelefono.cs">
+    <Compile Include="Forms\BuscarTelefono.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BuscarTelefono.Designer.cs">
+    <Compile Include="Forms\BuscarTelefono.Designer.cs">
       <DependentUpon>BuscarTelefono.cs</DependentUpon>
     </Compile>
-    <Compile Include="conectionDataBase.cs" />
-    <Compile Include="FormSGT.cs">
+    <Compile Include="Access DataBase\conectionDataBase.cs" />
+    <Compile Include="Forms\FormSGT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSGT.Designer.cs">
+    <Compile Include="Forms\FormSGT.Designer.cs">
       <DependentUpon>FormSGT.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioPrincipal.cs">
+    <Compile Include="Forms\FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioPrincipal.Designer.cs">
+    <Compile Include="Forms\FormularioPrincipal.Designer.cs">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormularioReportes.cs">
+    <Compile Include="Forms\FormularioReportes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormularioReportes.Designer.cs">
+    <Compile Include="Forms\FormularioReportes.Designer.cs">
       <DependentUpon>FormularioReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModificarClientes.cs">
+    <Compile Include="Forms\ModificarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModificarClientes.Designer.cs">
+    <Compile Include="Forms\ModificarClientes.Designer.cs">
       <DependentUpon>ModificarClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserData.cs">
+    <Compile Include="Forms\UserData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserData.Designer.cs">
+    <Compile Include="Forms\UserData.Designer.cs">
       <DependentUpon>UserData.cs</DependentUpon>
     </Compile>
-    <Compile Include="ValidarUsuarioModificarCliente.cs">
+    <Compile Include="Forms\ValidarUsuarioModificarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ValidarUsuarioModificarCliente.Designer.cs">
+    <Compile Include="Forms\ValidarUsuarioModificarCliente.Designer.cs">
       <DependentUpon>ValidarUsuarioModificarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="VentasCajero.cs">
+    <Compile Include="Forms\VentasCajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VentasCajero.Designer.cs">
+    <Compile Include="Forms\VentasCajero.Designer.cs">
       <DependentUpon>VentasCajero.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AccessLogin.resx">
+    <EmbeddedResource Include="Forms\AccessLogin.resx">
       <DependentUpon>AccessLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BuscarTelefono.resx">
+    <EmbeddedResource Include="Forms\BuscarTelefono.resx">
       <DependentUpon>BuscarTelefono.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSGT.resx">
+    <EmbeddedResource Include="Forms\FormSGT.resx">
       <DependentUpon>FormSGT.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioPrincipal.resx">
+    <EmbeddedResource Include="Forms\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormularioReportes.resx">
+    <EmbeddedResource Include="Forms\FormularioReportes.resx">
       <DependentUpon>FormularioReportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModificarClientes.resx">
+    <EmbeddedResource Include="Forms\ModificarClientes.resx">
       <DependentUpon>ModificarClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -159,13 +159,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserData.resx">
+    <EmbeddedResource Include="Forms\UserData.resx">
       <DependentUpon>UserData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ValidarUsuarioModificarCliente.resx">
+    <EmbeddedResource Include="Forms\ValidarUsuarioModificarCliente.resx">
       <DependentUpon>ValidarUsuarioModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VentasCajero.resx">
+    <EmbeddedResource Include="Forms\VentasCajero.resx">
       <DependentUpon>VentasCajero.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
